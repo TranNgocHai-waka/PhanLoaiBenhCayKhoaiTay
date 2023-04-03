@@ -44,7 +44,7 @@
         <div class="col" >
             
 
-        <div style="margin-bottom:10px; margin-top:20px ">
+        <!-- <div style="margin-bottom:10px; margin-top:20px ">
             <p-inplace [closable]="true"  >
                 <ng-template pTemplate="display">
                     
@@ -82,9 +82,44 @@
                     </div>
                 </ng-template>
             </p-inplace>
+        </div> -->
+        
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="page-title" style="text-align: center; ">
+            <b><h2 class="m-0 text-black ">KẾT QUẢ PHÂN LOẠI</h2></b>
         </div>
+        <br/>
+        <br/>
+        <p-table
+            [value]="userList"
+            [rows]="3"
+            [globalFilterFields]="['TenBenh']"
+            styleClass="p-datatable-sm p-datatable-striped p-datatable-gridlines"
+            responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+            <tr>
+                <th class="text-center" id="Ten" style="padding: 30px; font-size: 20px;">Loại bệnh</th>
+                <th class="text-center" id="ThaoTac" style="padding: 30px; font-size: 20px;">Độ chính xác</th>
+            </tr>
+            
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex" >
+            <tr>
+                <td class="text-center" style="padding: 60px; font-size: 20px;" >
+                    {{ item.TenBenh }}
+                </td>
+                <td class="text-center" style="padding: 60px; font-size: 20px;" >
+                    {{ item.DoChinhXac * 100 | number }}%
+                </td>
+            </tr>
+            </ng-template>
+        </p-table>
+
            
-            <p-table
+            <!-- <p-table
                     [value]="userList"
                     [paginator]="true"
                     [rows]="3"
@@ -151,7 +186,7 @@
                     <ng-template pTemplate="summary">
                       <div class="p-d-flex p-ai-center p-jc-between">Tổng: {{userList.length}} kết quả.</div>
                     </ng-template>
-                  </p-table>
+                  </p-table> -->
 
         </div>
     </div>

@@ -93,7 +93,7 @@ def getUeserByID(id):
         cursor = sqliteConnection.cursor()
         print("Connected to SQLite")
 
-        sql_select_query = """select * from RESULTS where  UserID= ?"""
+        sql_select_query = """select * from RESULTS where  UserID= ? order by ResultID desc LIMIT 1"""
         # cur.execute("SELECT * FROM tasks WHERE priority=?", (priority,))
         cursor.execute(sql_select_query, (id,))
         records = cursor.fetchall()
@@ -113,6 +113,7 @@ def getUeserByID(id):
         if sqliteConnection:
             sqliteConnection.close()
             print("The SQLite connection is closed")
+            
             
 def Login(tenDN, matKhau):
     try:
