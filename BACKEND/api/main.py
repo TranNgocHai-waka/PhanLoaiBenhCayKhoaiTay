@@ -148,6 +148,18 @@ async def insert_results( UserID, LinkImg, file: UploadFile = File(...)):
         "NgayTest": NgayTest,
         "DoChinhXac" : DoChinhXac
     }
+
+@app.get("/get/search/{id}/{dob}/{sick}/{accuracy}")
+async def search(id,dob, sick, accuracy):
+    data.create_table_user()
+    results = data.getResultByKey(id, dob,sick,accuracy)
+    # if not results:
+    #     raise HTTPException(
+    #         status_code=status.HTTP_404_NOT_FOUND,
+    #         detail=f"User with this id {id} does not exist",
+    #     )
+    return results
+
 # @app.post("/results")
 # async def insert_results( item: Result = Body(embed=True)):
 #     data.create_table_user()

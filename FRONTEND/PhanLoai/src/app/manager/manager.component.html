@@ -6,8 +6,14 @@
             </a>
             <div class="page-title" style="display: contents;">
                 <ul style="display: contents;">
-                    <li style="list-style-type: none; display: inline; margin-left: 50px;"><h5><a href="http://localhost:4200/classify" style="color: white; text-decoration: none;">PHÂN LOẠI BỆNH KHOAI TÂY</a></h5></li>
-                    <li style="list-style-type: none; display: inline; margin-left: 50px;"><h5><a href="http://localhost:4200/manager" style="color: white; text-decoration: none;">QUẢN LÝ</a></h5></li>
+                    <li style="list-style-type: none; display: inline; margin-left: 50px;">
+                        <h5><a href="http://localhost:4200/classify" style="color: white; text-decoration: none;">PHÂN
+                                LOẠI BỆNH KHOAI TÂY</a></h5>
+                    </li>
+                    <li style="list-style-type: none; display: inline; margin-left: 50px;">
+                        <h5><a href="http://localhost:4200/manager" style="color: white; text-decoration: none;">QUẢN
+                                LÝ</a></h5>
+                    </li>
                 </ul>
                 <!-- <h5 class="m-0 text-white ">PHÂN LOẠI BỆNH KHOAI TÂY</h5> | <h5>QUẢN LÝ</h5> -->
             </div>
@@ -15,13 +21,8 @@
         <div class="be-right-navbar d-flex align-items-center">
             <a href="http://localhost:4200/infor"><strong class="text-white mr-3">{{userInfor.HoTen}}</strong></a>
             <div style="margin-left: 10px;">
-                <button
-                    pButton
-                    class=" w-110 p-button-danger text-center p-button-sm  p-2 font-weight-bold"
-                    icon="pi pi-sign-out"
-                    (click)="logout()"
-                    iconPos="right"
-                ></button>
+                <button pButton class=" w-110 p-button-danger text-center p-button-sm  p-2 font-weight-bold"
+                    icon="pi pi-sign-out" (click)="logout()" iconPos="right"></button>
             </div>
         </div>
     </div>
@@ -29,101 +30,90 @@
 <div class="container">
 
     <div class="row">
-        <div class="col" >
-        <br/>
-        <br/>
-        <div class="page-title" style="text-align: center; ">
-            <b><h2 class="m-0 text-black ">DANH SÁCH KẾT QUẢ PHÂN LOẠI</h2></b>
-        </div> 
-        <br/>
-        <br/>
+        <div class="col">
+            <br />
+            <br />
+            <div class="page-title" style="text-align: center; ">
+                <b>
+                    <h2 class="m-0 text-black ">DANH SÁCH KẾT QUẢ PHÂN LOẠI</h2>
+                </b>
+            </div>
+            <br />
+            <br />
 
-        <form [formGroup]="formManagement"  >
-        <div>
-            
-            <span class="p-input-icon-left w-20" style="margin-right: 25px;margin-left: 130px;">
-                <input class="w-100" type="text" pInputText placeholder="Ngày phân loại" formControlName="dob" />
-              </span>
-              <span class="p-input-icon-left w-20"  style="margin-right: 25px;">
-                <input class="w-100" type="text" pInputText placeholder="Loại bệnh" formControlName="sick" />
-              </span>
-              <span class="p-input-icon-left w-20"  style="margin-right: 25px;">
-                <input class="w-100" type="text" pInputText placeholder="Độ chính xác" formControlName="accuracy" />
-              </span>
-            
-              <button
-                    pButton
-                    pRipple
-                    type="button"
-                    label="Tìm kiếm"
-                    class="p-button-raised w-22"
-                    (click)="search()"></button>
-        </div>
-    </form>
+            <form [formGroup]="formManagement">
+                <div>
 
-        <p-divider></p-divider>
-           
-            <p-table
-                    [value]="userList"
-                    [paginator]="true"
-                    [rows]="5"
-                    [globalFilterFields]="['TenBenh']"
-                    styleClass="p-datatable-sm p-datatable-striped p-datatable-gridlines"
-                    responsiveLayout="scroll">
-                    <ng-template pTemplate="header">
-                      <tr>
+                    <span class="p-input-icon-left w-20" style="margin-right: 25px;margin-left: 130px;">
+                        <input class="w-100" type="text" pInputText placeholder="Ngày phân loại"
+                            formControlName="dob" />
+                    </span>
+                    <span class="p-input-icon-left w-20" style="margin-right: 25px;">
+                        <input class="w-100" type="text" pInputText placeholder="Loại bệnh" formControlName="sick" />
+                    </span>
+                    <span class="p-input-icon-left w-20" style="margin-right: 25px;">
+                        <input class="w-100" type="text" pInputText placeholder="Độ chính xác"
+                            formControlName="accuracy" />
+                    </span>
+
+                    <button pButton pRipple type="button" label="Tìm kiếm" class="p-button-raised w-22"
+                        (click)="search()"></button>
+                </div>
+            </form>
+
+            <p-divider></p-divider>
+
+            <p-table [value]="userList" [paginator]="true" [rows]="5" [globalFilterFields]="['TenBenh']"
+                styleClass="p-datatable-sm p-datatable-striped p-datatable-gridlines" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
                         <th class="text-center">ID</th>
                         <th class="text-center" id="STT">Ngày</th>
                         <th class="text-center" id="Ten">Ảnh</th>
                         <th class="text-center" id="Ten">Loại bệnh</th>
                         <th class="text-center" id="ThaoTac">Độ chính xác</th>
                         <th class="text-center" id="ThaoTac">Hành động</th>
-                      </tr>
-                      
-                    </ng-template>
-                    <ng-template pTemplate="body" let-item let-rowIndex="rowIndex" >
-                      <tr>
+                    </tr>
+
+                </ng-template>
+                <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+                    <tr>
                         <td>
                             {{ item.ResultID }}
                         </td>
-                        <td class="text-center" >
-                            {{ item.NgayTest  }}
+                        <td class="text-center">
+                            {{ item.NgayTest }}
                         </td>
-                        <td class="text-truncate" >
+                        <td class="text-truncate">
                             {{ item.LinkImg }}
                         </td>
-                        <td class="text-center"  >
+                        <td class="text-center">
                             {{ item.TenBenh }}
                         </td>
-                        <td class="text-center"  >
+                        <td class="text-center">
                             {{ item.DoChinhXac * 100 | number }}%
                         </td>
-                        
+
                         <td style="width: 8rem">
-                          <div class="d-flex justify-content-center">
-                            <button
-                              pButton
-                              type="button"
-                              icon="pi pi-trash"
-                              pTooltip="Xóa"
-                              tooltipPosition="bottom"
-                              (click)="deleteResult1(item.ResultID)"
-                              class="p-button-text p-button-danger p-button-sm"></button>
-                          </div>
+                            <div class="d-flex justify-content-center">
+                                <button pButton type="button" icon="pi pi-trash" pTooltip="Xóa" tooltipPosition="bottom"
+                                    (click)="deleteResult1(item.ResultID)"
+                                    class="p-button-text p-button-danger p-button-sm"></button>
+                            </div>
                         </td>
-                      </tr>
-                    </ng-template>
-                    <ng-template  pTemplate="emptymessage" let-columns>
-                        <tr>
-                          <td colspan="12" class="text-center">
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage" let-columns>
+                    <tr>
+                        <td colspan="12" class="text-center">
                             <img style="width: 180px;" src="/assets/nodata.PNG" alt="">
-                          </td>
-                        </tr>
-                      </ng-template>
-                    <ng-template pTemplate="summary">
-                      <div class="p-d-flex p-ai-center p-jc-between">Tổng: {{userList.length}} kết quả.</div>
-                    </ng-template>
-                  </p-table>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="p-d-flex p-ai-center p-jc-between">Tổng: {{userList.length}} kết quả.</div>
+                </ng-template>
+            </p-table>
 
         </div>
     </div>
@@ -133,7 +123,7 @@
 <p-toast position="top-center" key="tc"></p-toast>
 <p-toast position="bottom-center" key="bc"></p-toast>
 
-<p-toast position="bottom-center" key="c"  [baseZIndex]="5000">
+<p-toast position="bottom-center" key="c" [baseZIndex]="5000">
     <ng-template let-message pTemplate="message">
         <div class="flex flex-column" style="flex: 1">
             <div class="text-center">
@@ -143,13 +133,12 @@
             </div>
             <div class="grid p-fluid">
                 <div class="col-6">
-                    <button type="button" pButton  label="Yes" class="p-button-success"></button>
+                    <button type="button" pButton label="Yes" class="p-button-success"></button>
                 </div>
                 <div class="col-6">
-                    <button type="button" pButton  label="No" class="p-button-secondary"></button>
+                    <button type="button" pButton label="No" class="p-button-secondary"></button>
                 </div>
             </div>
         </div>
     </ng-template>
 </p-toast>
-

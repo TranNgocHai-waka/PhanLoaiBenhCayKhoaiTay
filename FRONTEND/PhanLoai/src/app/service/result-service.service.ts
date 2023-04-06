@@ -25,6 +25,13 @@ export class ResultServiceService {
 
   public getAllResultManagement(): Observable<any> {
     var param = JSON.parse(localStorage.getItem("userInfo")).UserID
-    return this.httpClient.get<any>(this.baseURL + "/get/manager/"+ param )
+    return this.httpClient.get<any>(this.baseURL + "get/manager/"+ param )
+  }
+
+  public getSearchAll(dob: string, sick: string, accuracy: string): Observable<any> {
+    var id = JSON.parse(localStorage.getItem("userInfo")).UserID
+    //var param = `search?id=${id}&Dob=${dob}&Sick=${sick}&Accuracy=${accuracy}`
+     // return this.httpClient.get<any>(this.baseURL+param)
+    return this.httpClient.get<any>(this.baseURL + "get/search/"+ id + "&" + dob + "&" + sick + "&" + accuracy)
   }
 }
