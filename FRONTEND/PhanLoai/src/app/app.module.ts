@@ -21,12 +21,16 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {InplaceModule} from 'primeng/inplace';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import { ManagerComponent } from './manager/manager.component';
+import { InforComponent } from './infor/infor.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ClassifyComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    ManagerComponent,
+    InforComponent
   ],
   imports: [
     BrowserModule,

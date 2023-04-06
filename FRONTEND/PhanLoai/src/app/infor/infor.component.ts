@@ -12,12 +12,12 @@ import { UserServiceService } from '../service/user-service.service';
 import { UserUpdateComponent } from '../user-update/user-update.component';
 
 @Component({
-  selector: 'app-classify',
-  templateUrl: './classify.component.html',
-  styleUrls: ['./classify.component.css'],
+  selector: 'app-infor',
+  templateUrl: './infor.component.html',
+  styleUrls: ['./infor.component.css'],
   providers: [DialogService]
 })
-export class ClassifyComponent {
+export class InforComponent {
   constructor (private router: Router,
     private messageService: MessageService,
     private toastMessageService: ToastMessageService,
@@ -88,7 +88,7 @@ export class ClassifyComponent {
   }
   
 
-  classify() {
+  infor() {
     let userid = this.userInfor.UserID
     let linkImg = "http.com"
     let img = this.uploadForm.controls["avatar"].value

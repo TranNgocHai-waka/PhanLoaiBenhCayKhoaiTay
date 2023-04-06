@@ -68,7 +68,6 @@ async def get_user(id):
     #     )
     return user
 
-
 # @app.post("/user")
 # async def insert_user(UserID, HoTen, TenDN, DiaChi, NgaySinh, MatKhau):
 #     data.create_table_user()

@@ -15,7 +15,6 @@ export class ResultServiceService {
     var param = JSON.parse(localStorage.getItem("userInfo")).UserID
     return this.httpClient.get<any>(this.baseURL + "get/"+ param )
   }
-
   public deleteResult(id:number): Observable<any> {
     return this.httpClient.delete<any>(this.baseURL + "delete_result_by_id/" +id)
   }

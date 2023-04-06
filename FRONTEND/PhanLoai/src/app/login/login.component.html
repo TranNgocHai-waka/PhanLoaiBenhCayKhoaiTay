@@ -2,11 +2,16 @@
     <div class="container py-5 h-100">
       <div class="row d-flex align-items-top justify-content-center h-100">
         
-        <div style="box-shadow:0 2px 12px 0 rgba(0,0,0,.1); border-radius: 15px;" class=" bg-white border border-top  p-3 col-md-4 col-sm-12">
-          <div class="text-center">
-            <img class="border border-dark rounded" src="/assets/logo.jpg" style="width:90px" alt="">
-          </div>
+        <div style="box-shadow:0 2px 12px 0 rgba(0,0,0,.1); border-radius: 15px; width: 70%; height: 87%;" class=" bg-white border border-top  p-3 col-md-4 col-sm-12">
           <h5 class="mt-3 text-center mb-3">PHẦN MỀM PHÂN LOẠI BỆNH KHOAI TÂY</h5>
+          <table>
+            <tr>
+              <td style="width: 50%;">
+                <div class="text-center">
+                  <img class="border border-dark rounded shadow-right" src="/assets/logo.jpg" style="background: #dddddd; border-radius: 50% !important; border: none !important; height: 300px; margin: 20px; text-align: center; width: 300px;" alt="">
+                </div>
+              </td>
+              <td>
           <p-tabView>
             <p-tabPanel header="Đăng nhập vào hệ thống">
               <form [formGroup]="formLogin"  > 
@@ -156,7 +161,9 @@
               </form>
             </p-tabPanel>
           </p-tabView>
-          
+        </td>
+        </tr>
+        </table>
         </div>
       </div>
     </div>
