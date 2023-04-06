@@ -17,8 +17,7 @@
             <div style="margin-left: 10px;">
                 <button
                     pButton
-                    class=" w-100 p-button-danger text-center p-button-sm  p-2 font-weight-bold"
-                    label="Đăng xuất "
+                    class=" w-110 p-button-danger text-center p-button-sm  p-2 font-weight-bold"
                     icon="pi pi-sign-out"
                     (click)="logout()"
                     iconPos="right"
@@ -34,15 +33,17 @@
         <div class="col" >
             
 
-        <div style="margin-bottom:10px; margin-top:20px ">
+        <div style="margin-bottom:10px; margin-top:50px " style="box-shadow:0 2px 12px 0 rgba(0,0,0,.1); border-radius: 15px; width: 70%; height: 87%;">
             <p-inplace [closable]="true"  >
-                <ng-template pTemplate="display">
+                <!-- <ng-template pTemplate="display">
                     
                         <button pButton icon="pi pi-user" label="Xem thông tin cá nhân"></button>
                     
-                </ng-template>
-                <ng-template pTemplate="content">
-                    <table border="2" class="table table-bordered caption-top">
+                </ng-template> -->
+                <br/>
+                <br/>
+                <ng-template pTemplate="display">
+                    <table border="1" class="table table-bordered caption-top">
                         <tbody>
                             <tr class="bg-primary text-white">
                                 <th></th>

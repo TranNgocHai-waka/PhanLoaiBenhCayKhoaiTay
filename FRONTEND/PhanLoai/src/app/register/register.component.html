@@ -2,7 +2,7 @@
     <div class="container py-5 h-100">
       <div class="row d-flex align-items-top justify-content-center h-100">
         
-        <div style="box-shadow:0 2px 12px 0 rgba(0,0,0,.1); border-radius: 15px; width: 70%; height: 87%;" class=" bg-white border border-top  p-3 col-md-4 col-sm-12">
+        <div style="box-shadow:0 2px 12px 0 rgba(0,0,0,.1); border-radius: 15px; width: 70%; height: 100%;" class=" bg-white border border-top  p-3 col-md-4 col-sm-12">
           <h5 class="mt-3 text-center mb-3">PHẦN MỀM PHÂN LOẠI BỆNH CÂY KHOAI TÂY</h5>
           <table>
             <tr>
@@ -13,64 +13,11 @@
               </td>
               <td>
           <p-tabView>
-            <p-tabPanel header="Đăng nhập" >
-              <form [formGroup]="formLogin"  > 
-                <div class="form-group">
-                  <!-- <h6 class="d-block">Tên đăng nhập(<span style="color: red;">*</span>)</h6> -->
-                  <span class="p-input-icon-left w-100">
-                    <i class="pi pi-user"></i>
-                    <input class="w-100" type="text" pInputText placeholder="Nhập tên đăng nhập" formControlName="username" />
-                  </span>
-                  <div
-                    class="mt-1"
-                    *ngIf="formLogin.controls['username'].touched && formLogin.controls['username'].getError('required')">
-                    <h6 class="text-danger">Tên đăng nhập là trường bắt buộc</h6>
-                  </div>
-                </div>
-                <div class="mt-3 form-group">
-                  <!-- <h6 class="d-block">Mật khẩu(<span style="color: red;">*</span>)</h6> -->
-                  <span class="p-input-icon-left w-100">
-                    <i class="pi pi-key"></i>
-                    <input class="w-100" type="{{ passwordTextTypeLogin ? 'text' : 'password' }}" pInputText placeholder="Nhập mật khẩu" formControlName="password" />
-                  </span>
-                  <div
-                    class="mt-1"
-                    *ngIf="formLogin.controls['password'].touched && formLogin.controls['password'].getError('required')">
-                    <h6 class="text-danger">Mật khẩu là trường bắt buộc</h6>
-                  </div>
-                </div>
-                <div class="mt-2 field-checkbox d-flex form-group">
-                  <p-checkbox [binary]="true" inputId="binary" (onChange)="togglePasswordTextTypeLogin($event)"></p-checkbox>
-                  <h6 class="mb-0 ml-2" for="binary" style="margin: 4px;">Hiện mật khẩu</h6>
-                </div>
-                <div class="text-center d-flex justify-content-center w-100 mt-3">
-                  
-                </div>
-                <div class="mt-3 d-flex justify-content-center">
-                  <button
-                    pButton
-                    pRipple
-                    type="button"
-                    label="Đăng nhập"
-                    class="p-button-raised w-100"
-                    (click)="login(userId)"
-                    [disabled]="formLogin.invalid"
-                    [loading]="isLogin"></button>
-                </div>
-                <!-- <p-divider></p-divider> -->
-                <br>
-                <div class="pt-1 pb-1">
-                  <h6 class="text-center font-weight-bold ">Bạn quên mật khẩu? <a href="" class="text-decoration-none text-danger">Quên mật khẩu</a></h6>
-                  <h6 class="text-center font-weight-bold ">Bạn chưa có tài khoản? <a href="http://localhost:4200/register" class="text-decoration-none text-danger">Tạo tài khoản</a></h6>
-                  <!-- <h6 class="text-center font-weight-bold ">Hướng dẫn quên mật khẩu <a href="" class=" text-decoration-none text-danger">Xem hướng dẫn</a></h6> -->
-                </div>
-                
-              </form>
-            </p-tabPanel>
-            <!-- <p-tabPanel header="Đăng ký tài khoản" >
+            
+            <p-tabPanel header="Đăng ký tài khoản" >
               <form [formGroup]="formRegister"  >
                 <div class=" form-group">
-                    <h6 class="d-block">Họ và tên(<span style="color: red;">*</span>)</h6>
+                    <!-- <h6 class="d-block">Họ và tên(<span style="color: red;">*</span>)</h6> -->
                     <span class="p-input-icon-left w-100">
                       <i class="pi pi-tag"></i>
                       <input class="w-100" type="text" pInputText placeholder="Nhập họ và tên" formControlName="name" />
@@ -82,7 +29,7 @@
                     </div>
                 </div>
                 <div class="mt-3 form-group">
-                  <h6 class="d-block">Ngày sinh(<span style="color: red;">*</span>)</h6>
+                  <!-- <h6 class="d-block">Ngày sinh(<span style="color: red;">*</span>)</h6> -->
                   <span class="p-input-icon-left w-100">
                     <i class="pi pi-calendar"></i>
                     <input class="w-100" type="text" pInputText placeholder="Nhập ngày sinh" formControlName="dob" />
@@ -94,10 +41,10 @@
                   </div>
                 </div>
                 <div class="mt-3 form-group">
-                    <h6 class="d-block">Địa chỉ(<span style="color: red;">*</span>)</h6>
+                    <!-- <h6 class="d-block">Địa chỉ(<span style="color: red;">*</span>)</h6> -->
                     <span class="p-input-icon-left w-100">
                       <i class="pi pi-home"></i>
-                      <input class="w-100" type="text" pInputText placeholder="Nhập địa chỉ" formControlName="address" />
+                      <input class="w-100" type="text" pInputText placeholder="Nhập địa chỉ " formControlName="address" />
                     </span>
                       <div
                       class="mt-1"
@@ -106,7 +53,7 @@
                     </div>
                   </div>
                   <div class="mt-3 form-group">
-                    <h6 class="d-block">Tên đăng nhập(<span style="color: red;">*</span>)</h6>
+                    <!-- <h6 class="d-block">Tên đăng nhập(<span style="color: red;">*</span>)</h6> -->
                     <span class="p-input-icon-left w-100">
                       <i class="pi pi-user"></i>
                       <input class="w-100" type="text" pInputText placeholder="Nhập tên đăng nhập" formControlName="username" />
@@ -118,7 +65,7 @@
                     </div>
                   </div>
                 <div class="mt-3 form-group">
-                  <h6 class="d-block">Mật khẩu(<span style="color: red;">*</span>)</h6>
+                  <!-- <h6 class="d-block">Mật khẩu(<span style="color: red;">*</span>)</h6> -->
                   <span class="p-input-icon-left w-100">
                     <i class="pi pi-key"></i>
                     <input class="w-100" type="{{ passwordTextTypeRegister ? 'text' : 'password' }}" pInputText placeholder="Nhập mật khẩu" formControlName="password" />
@@ -136,9 +83,7 @@
                 <div class="text-center d-flex justify-content-center w-100 mt-3">
                   
                 </div>
-                <p-divider></p-divider>
-                <div class="pt-1 pb-1">
-                </div>
+               
                 <div class="mt-3 d-flex justify-content-center">
                   <button
                     pButton
@@ -161,8 +106,12 @@
                     (click)="refresh()"
                     ></button>
                 </div>
+                <br>
+                <div class="pt-1 pb-1">
+                  <h6 class="text-center font-weight-bold ">Bạn đã có tài khoản? <a href="http://localhost:4200/login" class="text-decoration-none text-danger">Đăng nhập</a></h6>
+                </div>
               </form>
-            </p-tabPanel> -->
+            </p-tabPanel>
           </p-tabView>
         </td>
         </tr>

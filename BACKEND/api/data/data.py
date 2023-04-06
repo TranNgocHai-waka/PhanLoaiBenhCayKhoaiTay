@@ -93,7 +93,7 @@ def getUeserByID(id):
         cursor = sqliteConnection.cursor()
         print("Connected to SQLite")
 
-        sql_select_query = """select * from RESULTS where  UserID= ?"""
+        sql_select_query = """select * from RESULTS where  UserID= ? order by ResultID desc LIMIT 1"""
         # cur.execute("SELECT * FROM tasks WHERE priority=?", (priority,))
         cursor.execute(sql_select_query, (id,))
         records = cursor.fetchall()
@@ -107,6 +107,30 @@ def getUeserByID(id):
         cursor.close()
         return Dict
 
+    except sqlite3.Error as error:
+        print("Failed to read data from sqlite table", error)
+    finally:
+        if sqliteConnection:
+            sqliteConnection.close()
+            print("The SQLite connection is closed")
+
+#getListResult_6_4_2023
+def getListResult(id):
+    try:
+        sqliteConnection = sqlite3.connect('data/dataset.db')
+        cursor = sqliteConnection.cursor()
+        print("Connected to SQLite")
+
+        sql_select_query = """select * from RESULTS where  UserID= ? order by ResultID"""
+        cursor.execute(sql_select_query, (id,))
+        records = cursor.fetchall()
+        Dict = []
+        for i in records:
+            keys = ("ResultID","UserID", "LinkImg", "TenBenh", "NgayTest", "DoChinhXac")
+            new_dict = dict(zip(keys, i))
+            Dict.append(new_dict)
+        cursor.close()
+        return Dict
     except sqlite3.Error as error:
         print("Failed to read data from sqlite table", error)
     finally:

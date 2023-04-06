@@ -17,8 +17,7 @@
             <div style="margin-left: 10px;">
                 <button
                     pButton
-                    class=" w-100 p-button-danger text-center p-button-sm  p-2 font-weight-bold"
-                    label="Đăng xuất "
+                    class=" w-110 p-button-danger text-center p-button-sm  p-2 font-weight-bold"
                     icon="pi pi-sign-out"
                     (click)="logout()"
                     iconPos="right"
@@ -30,104 +29,44 @@
 <div class="container">
 
     <div class="row">
-        <div class="col">
-            <div class="container1">
-                <div class="" style=" display: block;width: 500px ; height:500px; border:2px solid #000" *ngIf="imageURL === ''"></div>
-                <form class="d-flex align-items" style="flex-direction: column;" [formGroup]="uploadForm" >
-                    <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
-                        <img  [src]="imageURL" [alt]="uploadForm.value.name" [border]="2" height="500px" width="500px">
-                      </div>
-                    <input  pInputText type="file" accept="image/*" (change)="showPreview($event)" />
-                    <div class="mt-3 d-flex justify-content-between">
-                        <button (click)="manager()" pButton icon="pi pi-cog" type="submit" label="Phân loại"></button>
-
-                    </div>
-                </form>
-            </div>
-        </div>
         <div class="col" >
-            
-
-        <!-- <div style="margin-bottom:10px; margin-top:20px ">
-            <p-inplace [closable]="true"  >
-                <ng-template pTemplate="display">
-                    
-                        <button pButton icon="pi pi-user" label="Xem thông tin cá nhân"></button>
-                    
-                </ng-template>
-                <ng-template pTemplate="content">
-                    <table border="2" class="table table-bordered caption-top">
-                        <tbody>
-                            <tr class="bg-primary text-white">
-                                <th></th>
-                                <th>Thông tin</th>
-                            </tr>
-                            <tr>
-                                <th >Họ tên</th>
-                                <td>{{userInfor.HoTen}}</td>
-                            </tr>
-                            <tr>
-                                <th >Tên đăng nhập</th>
-                                <td>{{userInfor.TenDN}}</td>
-                            </tr>
-                            <tr>
-                                <th>Ngày sinh</th>
-                                <td>{{userInfor.NgaySinh}}</td>
-                            </tr>
-                            <tr>
-                                <th>Địa chỉ</th>
-                                <td>{{userInfor.DiaChi}}</td>
-                            </tr>
-                        </tbody>                
-                    </table>
-                    <div class="mr-3" style="display: inline-block; margin-right: 10px">
-
-                        <button (click)="userEdit(userInfor.UserID)" pButton icon="pi pi-pencil" label="Sửa thông tin cá nhân"></button>
-                    </div>
-                </ng-template>
-            </p-inplace>
-        </div> -->
-        
-        <br/>
-        <br/>
         <br/>
         <br/>
         <div class="page-title" style="text-align: center; ">
-            <b><h2 class="m-0 text-black ">KẾT QUẢ PHÂN LOẠI</h2></b>
-        </div>
+            <b><h2 class="m-0 text-black ">DANH SÁCH KẾT QUẢ PHÂN LOẠI</h2></b>
+        </div> 
         <br/>
         <br/>
-        <!-- <p-table
-            [value]="userList"
-            [rows]="3"
-            [globalFilterFields]="['TenBenh']"
-            styleClass="p-datatable-sm p-datatable-striped p-datatable-gridlines"
-            responsiveLayout="scroll">
-            <ng-template pTemplate="header">
-            <tr>
-                <th class="text-center" id="Ten" style="padding: 30px; font-size: 20px;">Loại bệnh</th>
-                <th class="text-center" id="ThaoTac" style="padding: 30px; font-size: 20px;">Độ chính xác</th>
-            </tr>
-            
-            </ng-template>
-            <ng-template pTemplate="body" let-item let-rowIndex="rowIndex" >
-            <tr>
-                <td class="text-center" style="padding: 60px; font-size: 20px;" >
-                    {{ item.TenBenh }}
-                </td>
-                <td class="text-center" style="padding: 60px; font-size: 20px;" >
-                    {{ item.DoChinhXac * 100 | number }}%
-                </td>
-            </tr>
-            </ng-template>
-        </p-table> -->
 
+        <form [formGroup]="formManagement"  >
+        <div>
+            
+            <span class="p-input-icon-left w-20" style="margin-right: 25px;margin-left: 130px;">
+                <input class="w-100" type="text" pInputText placeholder="Ngày phân loại" formControlName="dob" />
+              </span>
+              <span class="p-input-icon-left w-20"  style="margin-right: 25px;">
+                <input class="w-100" type="text" pInputText placeholder="Loại bệnh" formControlName="sick" />
+              </span>
+              <span class="p-input-icon-left w-20"  style="margin-right: 25px;">
+                <input class="w-100" type="text" pInputText placeholder="Độ chính xác" formControlName="accuracy" />
+              </span>
+            
+              <button
+                    pButton
+                    pRipple
+                    type="button"
+                    label="Tìm kiếm"
+                    class="p-button-raised w-22"
+                    (click)="search()"></button>
+        </div>
+    </form>
+
+        <p-divider></p-divider>
            
-            <!-- <p-table
+            <p-table
                     [value]="userList"
                     [paginator]="true"
-                    [rows]="3"
-                    [rowsPerPageOptions]="[3,5]"
+                    [rows]="5"
                     [globalFilterFields]="['TenBenh']"
                     styleClass="p-datatable-sm p-datatable-striped p-datatable-gridlines"
                     responsiveLayout="scroll">
@@ -136,13 +75,7 @@
                         <th class="text-center">ID</th>
                         <th class="text-center" id="STT">Ngày</th>
                         <th class="text-center" id="Ten">Ảnh</th>
-                        <th class="text-center" id="Ten">Loại bệnh
-                            <p-columnFilter
-                                type="text"
-                                field="TenBenh"
-                                display="menu"
-                            ></p-columnFilter>        
-                        </th>
+                        <th class="text-center" id="Ten">Loại bệnh</th>
                         <th class="text-center" id="ThaoTac">Độ chính xác</th>
                         <th class="text-center" id="ThaoTac">Hành động</th>
                       </tr>
@@ -190,7 +123,7 @@
                     <ng-template pTemplate="summary">
                       <div class="p-d-flex p-ai-center p-jc-between">Tổng: {{userList.length}} kết quả.</div>
                     </ng-template>
-                  </p-table> -->
+                  </p-table>
 
         </div>
     </div>

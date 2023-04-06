@@ -23,6 +23,7 @@ import { UserUpdateComponent } from './user-update/user-update.component';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import { ManagerComponent } from './manager/manager.component';
 import { InforComponent } from './infor/infor.component';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { InforComponent } from './infor/infor.component';
     ClassifyComponent,
     UserUpdateComponent,
     ManagerComponent,
-    InforComponent
+    InforComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -29,10 +29,11 @@ export class ManagerComponent {
   public userList: Result[] = [];
   public list: User[]=[];
   uploadForm: FormGroup;
+  formManagement: FormGroup;
   imageURL: string = '';
   public userInfor = JSON.parse(localStorage.getItem("userInfo")).User
   ngOnInit(): void {
-    //this.getAllResult()
+    this.getAllResultManagement()
     this.uploadForm = this.fb.group({
       avatar: [null],
     })
@@ -51,7 +52,7 @@ export class ManagerComponent {
     reader.readAsDataURL(file)
   }
 
-  getAllResult(){
+  getAllResultManagement(){
     this.resultService.getAllResult().subscribe((data: any) => {
       this.userList = [];
       console.log(data)
@@ -69,45 +70,29 @@ export class ManagerComponent {
       if (result.isConfirmed) {
         this.resultService.deleteResult(ResultID).subscribe({next: res => {
           console.log(res)
-            this.getAllResult();
+            this.getAllResultManagement();
         }})
         this.messageService.add({severity:'success', summary: 'Thành công', detail: 'Xóa thành công kết quả'});
       }
 
     })
   }
-  userEdit(id: number) {
-    this.dialogService.open(UserUpdateComponent, {
-      header: "Chỉnh sửa thông tin người dùng",
-      width: "40%",
-      data: {
-        type: 'edit',
-        id: id
-      }
-    });
-  }
-  
 
-  manager() {
-    let userid = this.userInfor.UserID
-    let linkImg = "http.com"
-    let img = this.uploadForm.controls["avatar"].value
-    let formData = new FormData
-    formData.append("file",img)
-    console.log(img)
-    
-    this.resultService.addResult(userid, linkImg, formData).subscribe({
-      next: (data:any )=> {
+  search() {
+    //this.newItemEvent.emit(userId);
+    let username = this.formManagement.controls["dob"].value;
+    let password = this.formManagement.controls["sick"].value;
+    this.userService.login(username,password).subscribe({
+      next: (data: any)=> {
         console.log(data)
-        this.getAllResult()
-        if(data.UserID != null) {
-          this.messageService.add({severity:'success', summary:'Success', detail: 'Phân loại thành công'})
+        if(typeof(data.User.UserID) == "number") {
+          localStorage.setItem("userInfo", JSON.stringify(data));
+          this.router.navigateByUrl("classify")
         }
       },error: error => {
-        this.messageService.add({severity:'error', summary: 'Error', detail: 'Lỗi trong quá trình phân loại'});
+        this.messageService.add({severity:'error', summary: 'Error', detail: 'Tài khoản hoặc mật khẩu không đúng'});
       }
     })
-
   }
   
 }

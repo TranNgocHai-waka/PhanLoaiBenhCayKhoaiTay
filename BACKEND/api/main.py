@@ -68,6 +68,18 @@ async def get_user(id):
     #     )
     return user
 
+#call to getListResult to view manager page
+@app.get("/get/manager/{id}")
+async def get_user(id):
+    data.create_table_user() 
+    user = data.getListResult(id)
+    # if not user:
+    #     raise HTTPException(
+    #         status_code=status.HTTP_404_NOT_FOUND,
+    #         detail=f"User with this id {id} does not exist",
+    #     )
+    return user
+
 # @app.post("/user")
 # async def insert_user(UserID, HoTen, TenDN, DiaChi, NgaySinh, MatKhau):
 #     data.create_table_user()

@@ -22,4 +22,9 @@ export class ResultServiceService {
     var param = `results?UserID=${UserID}&LinkImg=${LinkImg}`
     return this.httpClient.post<any>(this.baseURL + param,Img)
   }
+
+  public getAllResultManagement(): Observable<any> {
+    var param = JSON.parse(localStorage.getItem("userInfo")).UserID
+    return this.httpClient.get<any>(this.baseURL + "/get/manager/"+ param )
+  }
 }
