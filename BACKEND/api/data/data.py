@@ -138,14 +138,14 @@ def getListResult(id):
             sqliteConnection.close()
             print("The SQLite connection is closed")
 
-def getResultByKey(id, dob, sick, accuracy):
+def getResultByKey(id, dob, sick):
     try:
         sqliteConnection = sqlite3.connect('data/dataset.db')
         cursor = sqliteConnection.cursor()
         print("Connected to SQLite")
 
-        sql_select_query = """select * from RESULTS where  UserID= ? and NgayTest =? and TenBenh =? and DoChinhXac =? order by ResultID"""
-        cursor.execute(sql_select_query, (id,dob,sick,accuracy))
+        sql_select_query = """select * from RESULTS where  UserID= ? and NgayTest = ? and TenBenh = ?"""
+        cursor.execute(sql_select_query, (id,dob,sick))
         records = cursor.fetchall()
         Dict = []
         for i in records:
@@ -160,7 +160,53 @@ def getResultByKey(id, dob, sick, accuracy):
         if sqliteConnection:
             sqliteConnection.close()
             print("The SQLite connection is closed")
-            
+
+def getResultByDOB(id, dob):
+    try:
+        sqliteConnection = sqlite3.connect('data/dataset.db')
+        cursor = sqliteConnection.cursor()
+        print("Connected to SQLite")
+
+        sql_select_query = """select * from RESULTS where  UserID= ? and NgayTest = ?"""
+        cursor.execute(sql_select_query, (id,dob))
+        records = cursor.fetchall()
+        Dict = []
+        for i in records:
+            keys = ("ResultID","UserID", "LinkImg", "TenBenh", "NgayTest", "DoChinhXac")
+            new_dict = dict(zip(keys, i))
+            Dict.append(new_dict)
+        cursor.close()
+        return Dict
+    except sqlite3.Error as error:
+        print("Failed to read data from sqlite table", error)
+    finally:
+        if sqliteConnection:
+            sqliteConnection.close()
+            print("The SQLite connection is closed")
+
+def getResultBySick(id, sick):
+    try:
+        sqliteConnection = sqlite3.connect('data/dataset.db')
+        cursor = sqliteConnection.cursor()
+        print("Connected to SQLite")
+
+        sql_select_query = """select * from RESULTS where  UserID= ? and TenBenh = ?"""
+        cursor.execute(sql_select_query, (id,sick))
+        records = cursor.fetchall()
+        Dict = []
+        for i in records:
+            keys = ("ResultID","UserID", "LinkImg", "TenBenh", "NgayTest", "DoChinhXac")
+            new_dict = dict(zip(keys, i))
+            Dict.append(new_dict)
+        cursor.close()
+        return Dict
+    except sqlite3.Error as error:
+        print("Failed to read data from sqlite table", error)
+    finally:
+        if sqliteConnection:
+            sqliteConnection.close()
+            print("The SQLite connection is closed")
+
 def Login(tenDN, matKhau):
     try:
         # sqliteConnection = sqlite3.connect('SQLite_Python.db')

@@ -28,10 +28,30 @@ export class ResultServiceService {
     return this.httpClient.get<any>(this.baseURL + "get/manager/"+ param )
   }
 
-  public getSearchAll(dob: string, sick: string, accuracy: string): Observable<any> {
+  // public getSearchAll(dob: string, sick: string): Observable<any> {
+  //   var id = JSON.parse(localStorage.getItem("userInfo")).UserID
+  //   //var param = `search?id=${id}&Dob=${dob}&Sick=${sick}&Accuracy=${accuracy}`
+  //    // return this.httpClient.get<any>(this.baseURL+param)
+  //   return this.httpClient.get<any>(this.baseURL + "get/search?id="+ id + "&dob=" + dob + "&sick=" + sick)
+  // }
+  // public getSearchAll(dob: string, sick: string) {
+  //   var body =null
+  //   var id = JSON.parse(localStorage.getItem("userInfo")).UserID
+  //   var param = `get/search/?id=${id}&dob=${dob}&sick=${sick}`
+  //     return this.httpClient.get<any>(this.baseURL+param, body)
+  // }
+
+  public getSearchAll(dob: string, sick: string): Observable<any> {
     var id = JSON.parse(localStorage.getItem("userInfo")).UserID
-    //var param = `search?id=${id}&Dob=${dob}&Sick=${sick}&Accuracy=${accuracy}`
-     // return this.httpClient.get<any>(this.baseURL+param)
-    return this.httpClient.get<any>(this.baseURL + "get/search/"+ id + "&" + dob + "&" + sick + "&" + accuracy)
+    if(dob != "" && sick == "") {
+      return this.httpClient.get<any>(this.baseURL + "get/searchDOB/?id=" + id + "&dob=" +dob )
+    } else if(dob == "" && sick != "") {
+      return this.httpClient.get<any>(this.baseURL + "get/searchSick/?id=" + id +"&sick=" + sick )
+    } else if(dob != "" && sick != ""){
+      return this.httpClient.get<any>(this.baseURL + "get/search/?id=" + id + "&dob=" +dob +"&sick=" + sick )
+    } else {
+      return this.httpClient.get<any>(this.baseURL + "get/manager/"+ id )
+    }
+    
   }
 }

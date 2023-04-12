@@ -26,7 +26,7 @@
         </div>
     </div>
 </nav>
-<div class="container">
+<div class="container" style="text-align: -webkit-center; margin-top: 100px;">
 
     <div class="row">
         
@@ -34,7 +34,7 @@
             
 
         <div style="margin-bottom:10px; margin-top:50px " style="box-shadow:0 2px 12px 0 rgba(0,0,0,.1); border-radius: 15px; width: 70%; height: 87%;">
-            <p-inplace [closable]="true"  >
+            <!-- <p-inplace [closable]="true"  > -->
                 <!-- <ng-template pTemplate="display">
                     
                         <button pButton icon="pi pi-user" label="Xem thông tin cá nhân"></button>
@@ -42,7 +42,7 @@
                 </ng-template> -->
                 <br/>
                 <br/>
-                <ng-template pTemplate="display">
+                <!-- <ng-template pTemplate="display"> -->
                     <table border="1" class="table table-bordered caption-top">
                         <tbody>
                             <tr class="bg-primary text-white">
@@ -67,14 +67,14 @@
                             </tr>
                         </tbody>                
                     </table>
-                    <div class="mr-3" style="display: inline-block; margin-right: 10px">
-
-                        <button (click)="userEdit(userInfor.UserID)" pButton icon="pi pi-pencil" label="Sửa thông tin cá nhân"></button>
-                    </div>
-                </ng-template>
-            </p-inplace>
+                    
+                <!-- </ng-template> -->
+            <!-- </p-inplace> -->
         </div> 
-        
+        <div class="mr-3" style="display: inline-block; margin-right: 10px;margin-top: 20px;">
+
+            <button (click)="userEdit(userInfor.UserID)" pButton icon="pi pi-pencil" label="Sửa thông tin cá nhân"></button>
+        </div>
     
         
         </div>

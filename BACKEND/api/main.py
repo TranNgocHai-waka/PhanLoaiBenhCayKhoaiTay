@@ -71,6 +71,7 @@ async def get_user(id):
 #call to getListResult to view manager page
 @app.get("/get/manager/{id}")
 async def get_user(id):
+    print(id)
     data.create_table_user() 
     user = data.getListResult(id)
     # if not user:
@@ -149,16 +150,42 @@ async def insert_results( UserID, LinkImg, file: UploadFile = File(...)):
         "DoChinhXac" : DoChinhXac
     }
 
-@app.get("/get/search/{id}/{dob}/{sick}/{accuracy}")
-async def search(id,dob, sick, accuracy):
-    data.create_table_user()
-    results = data.getResultByKey(id, dob,sick,accuracy)
-    # if not results:
+@app.get("/get/search/")
+async def search(id,dob,sick):
+    print(dob)
+    data.create_table_user() 
+    user = data.getResultByKey(id,dob,sick)
+    # if not user:
     #     raise HTTPException(
     #         status_code=status.HTTP_404_NOT_FOUND,
     #         detail=f"User with this id {id} does not exist",
     #     )
-    return results
+    return user
+
+@app.get("/get/searchDOB/")
+async def search(id,dob):
+    print(dob)
+    data.create_table_user() 
+    user = data.getResultByDOB(id,dob)
+    # if not user:
+    #     raise HTTPException(
+    #         status_code=status.HTTP_404_NOT_FOUND,
+    #         detail=f"User with this id {id} does not exist",
+    #     )
+    return user
+
+@app.get("/get/searchSick/")
+async def search(id,sick):
+    print(sick)
+    data.create_table_user() 
+    user = data.getResultBySick(id,sick)
+    # if not user:
+    #     raise HTTPException(
+    #         status_code=status.HTTP_404_NOT_FOUND,
+    #         detail=f"User with this id {id} does not exist",
+    #     )
+    return user
+
 
 # @app.post("/results")
 # async def insert_results( item: Result = Body(embed=True)):

@@ -91,8 +91,8 @@ export class ManagerComponent {
     
     let dob = this.formManagement.controls["dob"].value;
     let sick = this.formManagement.controls["sick"].value;
-    let accuracy = this.formManagement.controls["accuracy"].value;
-    this.resultService.getSearchAll(dob,sick,accuracy).subscribe((data: any) => {
+    // let accuracy = this.formManagement.controls["accuracy"].value;
+    this.resultService.getSearchAll(dob,sick).subscribe((data: any) => {
       this.userList = [];
       console.log(data)
       this.userList = data

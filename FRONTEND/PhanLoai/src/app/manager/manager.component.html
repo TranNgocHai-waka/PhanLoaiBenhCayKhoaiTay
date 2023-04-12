@@ -42,18 +42,14 @@
             <br />
 
             <form [formGroup]="formManagement">
-                <div>
+                <div style="text-align: center;">
 
-                    <span class="p-input-icon-left w-20" style="margin-right: 25px;margin-left: 130px;">
+                    <span class="p-input-icon-left w-20" style="margin-right: 50px;margin-left: 130px;">
                         <input class="w-100" type="text" pInputText placeholder="Ngày phân loại"
                             formControlName="dob" />
                     </span>
                     <span class="p-input-icon-left w-20" style="margin-right: 25px;">
                         <input class="w-100" type="text" pInputText placeholder="Loại bệnh" formControlName="sick" />
-                    </span>
-                    <span class="p-input-icon-left w-20" style="margin-right: 25px;">
-                        <input class="w-100" type="text" pInputText placeholder="Độ chính xác"
-                            formControlName="accuracy" />
                     </span>
 
                     <button pButton pRipple type="button" label="Tìm kiếm" class="p-button-raised w-22"
