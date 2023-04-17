@@ -90,7 +90,7 @@ export class ClassifyComponent {
 
   classify() {
     let userid = this.userInfor.UserID
-    let linkImg = "http.com"
+    let linkImg = this.uploadForm.controls["avatar"].value.name
     let img = this.uploadForm.controls["avatar"].value
     let formData = new FormData
     formData.append("file",img)

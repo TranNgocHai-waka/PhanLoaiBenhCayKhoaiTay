@@ -82,7 +82,12 @@ export class RegisterComponent {
         console.log(data)
         if(data.HoTen != null) {
           this.formRegister.reset();
-          this.messageService.add({severity:'success', summary:'Success', detail: 'Đăng ký tài khoản thành công'})
+          this.router.navigateByUrl("login")
+          //this.messageService.add({severity:'success', summary:'Success', detail: 'Đăng ký tài khoản thành công'})
+          setTimeout(() => {
+            this.messageService.add({severity:'success', summary:'Success', detail: 'Đăng ký tài khoản thành công'})
+            }, 500);
+              
         }
       },error: error => {
         this.messageService.add({severity:'error', summary: 'Error', detail: 'Lỗi trong quá trình tạo tài khoản'});

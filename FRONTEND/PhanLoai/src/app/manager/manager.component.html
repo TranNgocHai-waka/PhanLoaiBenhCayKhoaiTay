@@ -6,9 +6,9 @@
             </a>
             <div class="page-title" style="display: contents;">
                 <ul style="display: contents;">
-                    <li style="list-style-type: none; display: inline; margin-left: 50px;">
+                    <li style="list-style-type: none; display: inline; margin-left: 200px;">
                         <h5><a href="http://localhost:4200/classify" style="color: white; text-decoration: none;">PHÂN
-                                LOẠI BỆNH KHOAI TÂY</a></h5>
+                                LOẠI </a></h5>
                     </li>
                     <li style="list-style-type: none; display: inline; margin-left: 50px;">
                         <h5><a href="http://localhost:4200/manager" style="color: white; text-decoration: none;">QUẢN
@@ -52,7 +52,7 @@
                         <input class="w-100" type="text" pInputText placeholder="Loại bệnh" formControlName="sick" />
                     </span>
 
-                    <button pButton pRipple type="button" label="Tìm kiếm" class="p-button-raised w-22"
+                    <button pButton pRipple type="button" label="Tìm kiếm" class="p-button-raised w-22" style="background: #5046E5;"
                         (click)="search()"></button>
                 </div>
             </form>
@@ -80,8 +80,8 @@
                         <td class="text-center">
                             {{ item.NgayTest }}
                         </td>
-                        <td class="text-truncate">
-                            {{ item.LinkImg }}
+                        <td class="text-truncate" style="text-align: center;">
+                            <img style="width: 180px;" src="/assets/Test/{{ item.LinkImg }}" alt="">
                         </td>
                         <td class="text-center">
                             {{ item.TenBenh }}

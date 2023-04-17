@@ -6,7 +6,7 @@
             </a>
             <div class="page-title" style="display: contents;">
                 <ul style="display: contents;">
-                    <li style="list-style-type: none; display: inline; margin-left: 50px;"><h5><a href="http://localhost:4200/classify" style="color: white; text-decoration: none;">PHÂN LOẠI BỆNH KHOAI TÂY</a></h5></li>
+                    <li style="list-style-type: none; display: inline; margin-left: 200px;"><h5><a href="http://localhost:4200/classify" style="color: white; text-decoration: none;">PHÂN LOẠI </a></h5></li>
                     <li style="list-style-type: none; display: inline; margin-left: 50px;"><h5><a href="http://localhost:4200/manager" style="color: white; text-decoration: none;">QUẢN LÝ</a></h5></li>
                 </ul>
                 <!-- <h5 class="m-0 text-white ">PHÂN LOẠI BỆNH KHOAI TÂY</h5> | <h5>QUẢN LÝ</h5> -->
@@ -34,18 +34,9 @@
             
 
         <div style="margin-bottom:10px; margin-top:50px " style="box-shadow:0 2px 12px 0 rgba(0,0,0,.1); border-radius: 15px; width: 70%; height: 87%;">
-            <!-- <p-inplace [closable]="true"  > -->
-                <!-- <ng-template pTemplate="display">
-                    
-                        <button pButton icon="pi pi-user" label="Xem thông tin cá nhân"></button>
-                    
-                </ng-template> -->
-                <br/>
-                <br/>
-                <!-- <ng-template pTemplate="display"> -->
-                    <table border="1" class="table table-bordered caption-top">
+                    <table border="1" class="table table-bordered caption-top" >
                         <tbody>
-                            <tr class="bg-primary text-white">
+                            <tr class="bg-primary text-white" >
                                 <th></th>
                                 <th>Thông tin</th>
                             </tr>
@@ -67,13 +58,10 @@
                             </tr>
                         </tbody>                
                     </table>
-                    
-                <!-- </ng-template> -->
-            <!-- </p-inplace> -->
         </div> 
         <div class="mr-3" style="display: inline-block; margin-right: 10px;margin-top: 20px;">
 
-            <button (click)="userEdit(userInfor.UserID)" pButton icon="pi pi-pencil" label="Sửa thông tin cá nhân"></button>
+            <button (click)="userEdit(userInfor.UserID)" pButton icon="pi pi-pencil" label="Sửa thông tin cá nhân" style="background: #5046E5;"></button>
         </div>
     
         
